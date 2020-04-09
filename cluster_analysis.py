@@ -29,7 +29,7 @@ def augmented_dendrogram(*args, **kwargs):
     return ddata
 
 
-#metoda Warda
+#Ward's method
 wx=ward(wi)
 print('------------------------------------------')
 print('Macierz odległości: ')
@@ -48,7 +48,7 @@ plt.ylabel('Dystans')
 plt.xlabel('Gatunek')
 plt.show()
 
-#Metoda Najbliższego Sąsiedztwa
+#nearest neighbour method
 wx=single(wi)
 print('------------------------------------------')
 print('Macierz odległości: ')
@@ -67,7 +67,7 @@ plt.ylabel('Dystans')
 plt.xlabel('Gatunek')
 plt.show()
 
-#Metoda Najdalszego sąsiedztwa
+#farthest neighbour method
 wx=complete(wi)
 print('------------------------------------------')
 print('Macierz odległości: ')
@@ -86,7 +86,7 @@ plt.ylabel('Dystans')
 plt.xlabel('Gatunek')
 plt.show()
 
-#metoda Warda
+#Ward's method
 wx=ward(wi1)
 print('------------------------------------------')
 print('Macierz odległości: ')
@@ -105,7 +105,7 @@ plt.ylabel('Dystans')
 plt.xlabel('Gatunek')
 plt.show()
 
-#Metoda Najbliższego Sąsiedztwa
+#nearest neighbour method
 wx=single(wi1)
 print('------------------------------------------')
 print('Macierz odległości: ')
@@ -124,7 +124,7 @@ plt.ylabel('Dystans')
 plt.xlabel('Gatunek')
 plt.show()
 
-#Metoda Najdalszego sąsiedztwa
+#farthest neighbour method
 wx=complete(wi1)
 print('------------------------------------------')
 print('Macierz odległości: ')
