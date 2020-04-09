@@ -12,7 +12,7 @@ from sklearn.preprocessing import PolynomialFeatures
 np.random.seed(0)
 x = 2 - 3 * np.random.normal(0, 1, 20)
 y = x - 2 * (x ** 2) + 0.5 * (x ** 3) + np.random.normal(-3, 3, 20)
-# zwiększanie istniejącej macierzy o jeden dodatkowy wymiar
+#increasing the existing matrix by one additional dimension
 x = x[:, np.newaxis]
 y = y[:, np.newaxis]
 
