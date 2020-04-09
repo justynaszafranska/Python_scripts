@@ -8,29 +8,23 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import PolynomialFeatures
 
-###dane randomowe
+###random data
 ##np.random.seed(0)
 ##x = 2 - 3 * np.random.normal(0, 1, 20)
 ##y = x - 2 * (x ** 2) + 0.5 * (x ** 3) + np.random.normal(-3, 3, 20)
-### zwiększanie istniejącej macierzy o jeden dodatkowy wymiar
+### increasing the existing matrix by one additional dimension
 ##x = x[:, np.newaxis]
 ##y = y[:, np.newaxis]
 
-#dane wpisane ręcznie
+#manually data
 y=np.array([1,2,8,18,35,45,47,63,74,99])
 x=np.array([3,6,9,12,24,28,34,38,68,89])
-# zwiększanie istniejącej macierzy o jeden dodatkowy wymiary
+# increasing the existing matrix by one additional dimension
 x = x[:, np.newaxis]
 y = y[:, np.newaxis]
 
-###wczytywanie danych csv
-##data = pd.read_csv('data.csv')
-###wartosc konwertowane do numpy array
-##x = data.iloc[:, 0].values.reshape(-1, 1)
-##y = data.iloc[:, 1].values.reshape(-1, 1)
 
-
-#regresja liniowa
+#linear regression
 model = LinearRegression()
 model.fit(x_poly, y)
 y_poly_pred = model.predict(x_poly)
@@ -38,47 +32,46 @@ y_poly_pred = model.predict(x_poly)
 #regresja liniowa
 linear_regressor = LinearRegression()
 
-# wykonywanie regresji liniowej
 linear_regressor.fit(x, y)
-y_pred = linear_regressor.predict(x) #wartosc przewidywalna y
+y_pred = linear_regressor.predict(x) #predictable value y
 
 
-#błąd sredniokwadratowy
+#mean squared error
 #rmse = np.sqrt(mean_squared_error(y,y_poly_pred))
 #mse= np.mean((y - y_poly_pred)**2)
 mse= mean_squared_error(y, y_poly_pred)
-print('Błąd średniokwadratowy wynosi regresji: ',mse)
-#wartosc R kwadrat
+print('Mean square error: ',mse)
+#R square value
 r2 = r2_score(y,y_poly_pred)
-print('Wartość R kwadrat wynosi: ',r2)
+print('R square value: ',r2)
 
-#wielomian dwustopniowy (degree=2)
+#two-stage polynomial (degree=2)
 polynomial_features= PolynomialFeatures(degree=2)
 x_poly = polynomial_features.fit_transform(x)
 mse= mean_squared_error(x_poly,y)
 print(mse)
 
 
-#WYKRES
-plt.title('Aproksymacja')
-plt.plot(x, y_pred, color='blue', linewidth=1.5) #regresja liniowa 
+#Plot
+plt.title('Aproximation')
+plt.plot(x, y_pred, color='blue', linewidth=1.5) #linear regression
 plt.scatter(x, y, s=10,color='black')
-# sortowanie wartość x 
+#sorting value x
 sort_axis = operator.itemgetter(0)
 sorted_zip = sorted(zip(x,y_poly_pred), key=sort_axis)
 x, y_poly_pred = zip(*sorted_zip)
 
-#błąd sredniokwadratowy
+#mean square error
 #mse = np.sqrt(mean_squared_error(y,y_poly_pred))
 #mse=  mean_squared_error(y, y_poly_pred)
 #mse= np.mean((y - y_poly_pred)**2)
-print('Błąd średniokwadratowy wynosi regresji wielomianowej: ',mse)
-#wartosc R kwadrat
+print('Mean square error in polynomial regression: ',mse)
+#R square value
 r2 = r2_score(y,y_poly_pred)
-print('Wartość R kwadrat wynosi: ',r2)
+print('R square value: ',r2)
 
 
-plt.plot(x, y_poly_pred, color='m') #regresja wielomianowa
+plt.plot(x, y_poly_pred, color='m') #polynomial regression
 plt.show()
 
 
