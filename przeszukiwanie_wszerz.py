@@ -17,8 +17,8 @@ def bfs(graph, start):
 
 bfs(graph, 'A') # {'B', 'C', 'A', 'F', 'D', 'E'}
 
-#zwraca wszystkie możliwe ścieżki między dwoma wierzchołkami,
-#z których pierwsza jest jedną z najkrótszych takich ścieżek
+#returns all possible paths between two vertices
+#the first is one of the shortest path
 def bfs_paths(graph, start, goal):
     queue = [(start, [start])]
     while queue:
@@ -30,10 +30,10 @@ def bfs_paths(graph, start, goal):
                 queue.append((next, path + [next]))
 
 list(bfs_paths(graph, 'A', 'F')) 
-print('Ścieżki między wierzchołkami A i F: ',list(bfs_paths(graph, 'A', 'F')))
+print('Paths between vertices between A i F: ',list(bfs_paths(graph, 'A', 'F')))
 
 
-#najkrotsza znaleziona sciezka
+#the shortest path found
 def shortest_path(graph, start, goal):
     try:
         return next(bfs_paths(graph, start, goal))
@@ -42,4 +42,4 @@ def shortest_path(graph, start, goal):
 
 shortest_path(graph, 'A', 'F') 
 next=shortest_path(graph, 'A', 'F')
-print('Najkrótsza ścieżka między A i F: ',next)
+print('The shortest path between A i F: ',next)
