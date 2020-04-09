@@ -1,3 +1,4 @@
+
 import operator
 
 import numpy as np
@@ -23,6 +24,8 @@ x=np.array([3,6,9,12,24,28,34,38,68,89])
 x = x[:, np.newaxis]
 y = y[:, np.newaxis]
 
+polynomial_features= PolynomialFeatures(degree=2)
+x_poly = polynomial_features.fit_transform(x)
 
 #linear regression
 model = LinearRegression()
@@ -73,5 +76,4 @@ print('R square value: ',r2)
 
 plt.plot(x, y_poly_pred, color='m') #polynomial regression
 plt.show()
-
 
