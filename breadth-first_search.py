@@ -30,7 +30,7 @@ def bfs_paths(graph, start, goal):
                 queue.append((next, path + [next]))
 
 list(bfs_paths(graph, 'A', 'F')) 
-print('Paths between vertices between A i F: ',list(bfs_paths(graph, 'A', 'F')))
+print('Paths between vertices between A and F: ',list(bfs_paths(graph, 'A', 'F')))
 
 
 #the shortest path found
@@ -42,4 +42,4 @@ def shortest_path(graph, start, goal):
 
 shortest_path(graph, 'A', 'F') 
 next=shortest_path(graph, 'A', 'F')
-print('The shortest path between A i F: ',next)
+print('The shortest path between A and F: ',next)
