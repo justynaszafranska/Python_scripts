@@ -1,4 +1,4 @@
-lista = [0] #informuje ze lista jest globalna, niewazne co zamiast 0
+lista = [0] #global list
 
 def fibo(n):
     if n>1:
